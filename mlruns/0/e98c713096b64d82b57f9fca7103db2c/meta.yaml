@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/My%20Projects/Deep%20Learning/RailwayTrackFaultDetection/RailwayTrackFaultDetection/mlruns/0/e98c713096b64d82b57f9fca7103db2c/artifacts
+end_time: 1706283643831
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e98c713096b64d82b57f9fca7103db2c
+run_name: flawless-slug-826
+run_uuid: e98c713096b64d82b57f9fca7103db2c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1706283535402
+status: 4
+tags: []
+user_id: dhiko

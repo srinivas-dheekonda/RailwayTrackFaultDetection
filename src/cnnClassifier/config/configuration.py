@@ -1,6 +1,6 @@
 from cnnClassifier.constants import *
-from cnnClassifier.utils.common import read_yaml, create_directories
-from cnnClassifier.entity.config_entity import (PrepareBaseModelCofig,TrainingConfig)
+from cnnClassifier.utils.common import read_yaml, create_directories,save_json
+from cnnClassifier.entity.config_entity import (PrepareBaseModelCofig,TrainingConfig,EvaluationConfig)
 import os
 
 class ConfigurationManager:
@@ -26,7 +26,7 @@ class ConfigurationManager:
             base_model_path=Path(config.base_model_path),
             updated_base_model_path=Path(config.updated_base_model_path),
             params_image_size=self.params.IMAGE_SIZE,
-            params_learning_rate=self.params.LEARNING_RATE,
+            params_learning_rate=self.params.learning_rate,
             params_include_top=self.params.INCLUDE_TOP,
             params_weights=self.params.WEIGHTS,
             params_classes=self.params.CLASSES
@@ -56,5 +56,15 @@ class ConfigurationManager:
 
         return training_config
 
-## training
+## evolution
+    def get_evaluation_config(self) -> EvaluationConfig:
+        eval_config = EvaluationConfig(
+            path_of_model="artifacts/training/model.h5",
+            training_data="artifacts/data_ingestion/Railway Track fault Detection Updated",
+            mlflow_uri="https://dagshub.com/srinivas-dheekonda/RailwayTrackFaultDetection.mlflow",
+            all_params=self.params,
+            params_image_size=self.params.IMAGE_SIZE,
+            params_batch_size=self.params.BATCH_SIZE
+        )
+        return eval_config
     
